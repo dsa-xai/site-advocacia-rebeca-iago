@@ -136,17 +136,17 @@
       var html = '';
       html += '<div style="width:100%;display:flex;flex-direction:column;box-sizing:border-box;background:#FFFFFF;border:1px solid #D9CFB8;box-shadow:0 18px 48px rgba(11,20,39,0.18);font-family:\'Public Sans\',system-ui,sans-serif;color:#1A1A1A;">';
 
-      html += '<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:#0F1B33;">';
+      html += '<div class="fc-head" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:#0F1B33;">';
       html += '<div style="display:flex;align-items:center;gap:12px;">';
       html += '<img src="assets/logo.png" alt="" width="40" height="40" style="width:40px;height:40px;display:block;">';
       html += '<div style="display:flex;flex-direction:column;gap:2px;">';
       html += '<span style="font-family:\'Playfair Display\',Georgia,serif;font-size:17px;font-weight:600;color:#F7F4EE;">[Nome do escritório]</span>';
-      html += '<span title="' + esc(s.statusTitle) + '" style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#A9B3C7;"><span style="position:relative;flex:0 0 8px;width:8px;height:8px;display:inline-block;"><span class="status-ring" style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span><span style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span></span><span style="font-weight:700;color:' + s.statusOnDark + ';">' + s.statusLabel + '</span><span>· seg. a sex., 09h às 18h</span></span>';
+      html += '<span class="fc-status" title="' + esc(s.statusTitle) + '" style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#A9B3C7;"><span style="position:relative;flex:0 0 8px;width:8px;height:8px;display:inline-block;"><span class="status-ring" style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span><span style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span></span><span style="font-weight:700;color:' + s.statusOnDark + ';">' + s.statusLabel + '</span><span>· seg. a sex., 09h às 18h</span></span>';
       html += '</div></div>';
       html += '<span style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#C9A45C;font-weight:600;white-space:nowrap;">Passo ' + step + ' de 3</span>';
       html += '</div>';
 
-      html += '<div style="display:flex;flex-direction:column;gap:18px;padding:28px 24px;background:#F7F4EE;">';
+      html += '<div class="fc-body" style="display:flex;flex-direction:column;gap:18px;padding:28px 24px;background:#F7F4EE;">';
 
       html += '<div style="display:flex;gap:10px;align-items:flex-start;">';
       html += '<img src="assets/logo.png" alt="" width="32" height="32" style="width:32px;height:32px;display:block;flex:0 0 32px;">';
@@ -246,10 +246,38 @@
     setOpen(0);
   }
 
+  // Menu mobile (botão "hambúrguer" do cabeçalho)
+  function initMobileNav() {
+    var header = document.querySelector('.site-header');
+    var toggle = header && header.querySelector('.nav-toggle');
+    if (!toggle) return;
+    function setOpen(open) {
+      header.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    }
+    toggle.addEventListener('click', function () {
+      setOpen(!header.classList.contains('nav-open'));
+    });
+    header.querySelectorAll('.main-nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (header.classList.contains('nav-open') && !header.contains(e.target)) setOpen(false);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     applyStatus();
     setInterval(applyStatus, 60000);
     document.querySelectorAll('[data-faleconosco]').forEach(initFaleConosco);
     document.querySelectorAll('[data-faq-group]').forEach(initFaqAccordion);
+    initMobileNav();
   });
 })();

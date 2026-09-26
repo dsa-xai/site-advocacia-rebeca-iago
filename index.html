@@ -10,8 +10,8 @@
 <body>
 <div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; background: #F7F4EE;">
 
-  <div style="position: sticky; top: 0; z-index: 50; width: 100%; display: flex; flex-direction: column;">
-    <div style="width: 100%; padding: 10px 64px; background: #FFFFFF; color: #12203C; font-size: 13px; font-weight: 500; border-bottom: 1px solid #E4DECD;">
+  <div class="site-top" style="position: sticky; top: 0; z-index: 50; width: 100%; display: flex; flex-direction: column;">
+    <div class="topbar" style="width: 100%; padding: 10px 64px; background: #FFFFFF; color: #12203C; font-size: 13px; font-weight: 500; border-bottom: 1px solid #E4DECD;">
     <div style="width: 100%; max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px;">
       <a class="nav-link" href="contato.html#localizacao" title="Ver localização do escritório" style="display: flex; align-items: center; gap: 8px; color: #12203C;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke="#8C6A2F" stroke-width="1.8" stroke-linejoin="round"></path><circle cx="12" cy="9.5" r="2.5" stroke="#8C6A2F" stroke-width="1.8"></circle></svg>
@@ -34,8 +34,8 @@
       </span>
     </div>
     </div>
-    <header style="width: 100%; padding: 16px 64px; background: #0F1B33; border-bottom: 1px solid #5E5234;">
-      <div style="width: 100%; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 32px;">
+    <header class="site-header" style="width: 100%; padding: 16px 64px; background: #0F1B33; border-bottom: 1px solid #5E5234;">
+      <div class="header-inner" style="width: 100%; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 32px;">
       <a href="index.html" style="justify-self: start; display: flex; align-items: center; gap: 14px;">
         <img src="assets/logo.png" alt="Logotipo do escritório" width="56" height="56" style="width: 56px; height: 56px; display: block;">
         <span style="display: flex; flex-direction: column; line-height: 1.15;">
@@ -43,20 +43,22 @@
           <span style="font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #B08D45;">Advocacia</span>
         </span>
       </a>
-      <nav style="display: flex; justify-content: center; align-items: center; gap: 32px;">
+      <nav id="menu-principal" class="main-nav" style="display: flex; justify-content: center; align-items: center; gap: 32px;">
         <a class="nav-link" href="index.html" style="font-size: 14.5px; color: #C9A45C; padding: 4px 0; border-bottom: 1px solid #C9A45C;">Início</a>
         <a class="nav-link" href="previdenciario.html" style="font-size: 14.5px; color: #DCE1EA;">Previdenciário</a>
         <a class="nav-link" href="trabalhista.html" style="font-size: 14.5px; color: #DCE1EA;">Trabalhista</a>
         <a class="nav-link" href="civel.html" style="font-size: 14.5px; color: #DCE1EA;">Cível</a>
         <a class="nav-link" href="sobre.html" style="font-size: 14.5px; color: #DCE1EA;">Advogados</a>
         <a class="nav-link" href="contato.html" style="font-size: 14.5px; color: #DCE1EA;">Contato</a>
+        <a class="btn-gold nav-cta" href="contato.html">Solicitar atendimento</a>
       </nav>
-      <a class="btn-gold" href="contato.html" style="justify-self: end; padding: 12px 22px; background: #B08D45; color: #0F1B33; font-size: 14px; font-weight: 700; border-radius: 2px;">Solicitar atendimento</a>
+      <a class="btn-gold header-cta" href="contato.html" style="justify-self: end; padding: 12px 22px; background: #B08D45; color: #0F1B33; font-size: 14px; font-weight: 700; border-radius: 2px;">Solicitar atendimento</a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span></button>
       </div>
     </header>
   </div>
 
-  <section id="arte" style="position: relative; width: 100%; height: clamp(680px, 35vw, calc(100vh - 130px)); padding: 0 64px; background: #12203C; overflow: hidden; display: flex; align-items: center;">
+  <section id="arte" class="hero" style="position: relative; width: 100%; height: clamp(680px, 35vw, calc(100vh - 130px)); padding: 0 64px; background: #12203C; overflow: hidden; display: flex; align-items: center;">
     <img src="assets/hero-home.jpg" alt="Dra. Rebeca Paschoal Machado e Dr. Iago Santos de Souza no escritório" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 5%; display: block;">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(15,27,51,0.94) 0%, rgba(15,27,51,0.86) 30%, rgba(15,27,51,0.35) 52%, rgba(15,27,51,0) 66%);"></div>
     <div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto;">
