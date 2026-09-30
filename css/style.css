@@ -156,6 +156,10 @@ input,select,textarea,button{ font:inherit; }
   /* Mapa */
   [style*="min-height: 460px"]{ min-height:340px !important; }
 
+  /* Nossa trajetória */
+  #trajetoria [style*="padding-top: 38px"]{ padding-top:0 !important; }
+  #trajetoria [style*="gap: 72px"]{ gap:48px !important; }
+
   /* Rodapé: linha final empilhada e centralizada */
   .footer-bottom{ grid-template-columns:minmax(0, 1fr) !important; gap:10px !important; text-align:center; }
   .footer-bottom > span{ text-align:center !important; }
@@ -183,6 +187,8 @@ input,select,textarea,button{ font:inherit; }
   p[style*="font-style: italic"][style*="font-size: 24px"]{ font-size:20px !important; }
 
   .hero > div[style*="position: relative"]{ padding:28px 20px 48px; }
+  #trajetoria [style*="grid-template-columns: repeat(4"]{ grid-template-columns:repeat(2, minmax(0, 1fr)) !important; gap:28px 20px !important; }
+  #trajetoria h3{ font-size:20px !important; }
   [style*="display: flex; gap: 14px"] > a{ flex:1 1 100%; text-align:center; }
 
   [style*="flex: 0 0 220px"]{ height:300px; }
