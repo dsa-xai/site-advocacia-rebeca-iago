@@ -138,7 +138,7 @@
 
       html += '<div class="fc-head" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:#0F1B33;">';
       html += '<div style="display:flex;align-items:center;gap:12px;">';
-      html += '<img src="assets/monograma-negativo.svg" alt="" width="35" height="40" style="width:auto;height:40px;display:block;">';
+      html += '<img src="assets/monograma-negativo.svg" alt="" width="38" height="40" style="width:auto;height:40px;display:block;">';
       html += '<div style="display:flex;flex-direction:column;gap:2px;">';
       html += '<span style="font-family:\'Playfair Display\',Georgia,serif;font-size:17px;font-weight:600;color:#F7F4EE;">Souza Paschoal Advocacia</span>';
       html += '<span class="fc-status" title="' + esc(s.statusTitle) + '" style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#A9B3C7;"><span style="position:relative;flex:0 0 8px;width:8px;height:8px;display:inline-block;"><span class="status-ring" style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span><span style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:' + s.statusDot + ';"></span></span><span style="font-weight:700;color:' + s.statusOnDark + ';">' + s.statusLabel + '</span><span>· seg. a sex., 09h às 18h</span></span>';
